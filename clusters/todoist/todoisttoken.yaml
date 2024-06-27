@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
     name: todoisttoken
+    namespace: flux-system
 type: Opaque
 data:
     tokenKey: ENC[AES256_GCM,data:+GbqFu/MmOiRL2iqrTzTmgXjOhPfqrXmTerZM9MGzn0BcW4R9Guip2CppHwtUjN4dPA3SXyKPNg=,iv:q7jnE+jVAitF4gJe7phQA7uWpF00YM235MdJ8YPU9/s=,tag:mulLODWZChktHpBUSw+q0w==,type:str]
