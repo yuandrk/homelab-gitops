@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
     name: telegramtoken
-    namespace: flux-system
+    namespace: teledoist
 type: Opaque
 data:
     tokenKey: ENC[AES256_GCM,data:fzV5n9TajZWzPZA/sAjsSy7K/Zt/rJa0dQcT2u0wiFSypvBBw5HZSWhUrDooX8yxqS5bwJ3iqtBJsI2g1UBcpg==,iv:NklV32TttovEhvVE+1UJrWW2iCgpMmHcvrUMzVbxSKg=,tag:N0v7lTcIVtNT59QXNEOtpA==,type:str]
