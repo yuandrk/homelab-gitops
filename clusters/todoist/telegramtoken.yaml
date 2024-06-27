@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: telegramtoken
+type: Opaque
+data:
+    tokenKey: ENC[AES256_GCM,data:fzV5n9TajZWzPZA/sAjsSy7K/Zt/rJa0dQcT2u0wiFSypvBBw5HZSWhUrDooX8yxqS5bwJ3iqtBJsI2g1UBcpg==,iv:NklV32TttovEhvVE+1UJrWW2iCgpMmHcvrUMzVbxSKg=,tag:N0v7lTcIVtNT59QXNEOtpA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1t6hz8ujzmd0lafx6lr3qzcg6whmuxj9zgjcrp37mcxgmsnna9u2qchqt0w
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA3YVdBV3Z5K1Nwc1daZEI5
+            T2tCUVlzMWZzVHo4Q1VoOTdrUGQvQUNkdnpRCnl6ZlluT29HWXBiQzFjUHJKMDMv
+            VHhxenJ2czA1TnlvVmVzZGhWSldxcmMKLS0tIGk3dER6MlBYeEVNUFFlTmNXakhD
+            dGNBYTNvenlBREEyMFRkOWxLWjlsM3cKVHHIVouHbSSgT6eeUW5f4+U1fu/jX9Ts
+            IKo7EvQNO2MaYPxcU5QVVfGsEhmmDsSwEFFgDWWv8J2ZoowLwAmu0w==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-06-27T12:10:22Z"
+    mac: ENC[AES256_GCM,data:s/U+bqEaC2v92/ZtIIIIv5tCnYPoCnpLC0PUHu9twrQ5LOwtUZU5AMeHInXx0tAQKWSupZlyu9QB01IV6LiUqU6DeJD7AFcHQT3ZPoxJPguBcK0DE9SeXkq8MmDgtK1paUE0DZ0ebq95QRj0NOnM53+oeXeWl82qil5bz0RX9cc=,iv:AXQu0/H8yQGgzfDNTTZfRg8Y47AdVL0PigCCun1HpI0=,tag:YtbmfxBXmJzRYH3TS82snA==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.8.1
