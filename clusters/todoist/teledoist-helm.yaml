@@ -12,4 +12,7 @@ spec:
       sourceRef:
         kind: GitRepository
         name: teledoist
-  interval: 1m0s
+  interval: 1m0s  
+  values:  # Check if there are hardcoded values here
+  key: value
+  
