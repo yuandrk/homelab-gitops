@@ -13,3 +13,6 @@ spec:
         kind: GitRepository
         name: teledoist
   interval: 1m0s
+  values:
+    nodeselector:
+      "kubernetes.io/arch": "arm64"
