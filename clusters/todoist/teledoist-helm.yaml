@@ -15,4 +15,4 @@ spec:
   interval: 1m0s
   values:
     nodeSelector:
-      "kubernetes.io/arch": "arm64"
+      kubernetes.io/arch: "arm64"
