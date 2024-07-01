@@ -29,16 +29,16 @@ spec:
         name: kube-prometheus-stack
         namespace: monitoring
       interval: 12h
-  values: 
-    grafana:
-      ingress: 
-        enabled: true
-        ingressClassName: traefik
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-staging"
-        tls:
-          - hosts:
-              - grafana.yuandrk.net
-            secretName: grafana-ingress
-        hosts:
-          - host: grafana.yuandrk.net
+  # values: 
+  #   grafana:
+  #     ingress: 
+  #       enabled: true
+  #       ingressClassName: traefik
+  #       annotations:
+  #         cert-manager.io/cluster-issuer: "letsencrypt-staging"
+  #       tls:
+  #         - hosts:
+  #             - grafana.yuandrk.net
+  #           secretName: grafana-ingress
+  #       hosts:
+  #         - host: grafana.yuandrk.net

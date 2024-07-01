@@ -1,8 +1,7 @@
 apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
+kind: Issuer
 metadata:
-  # Adjust the name here accordingly
-  name: letsencrypt-staging
+  name: letsencrypt
 spec:
   acme:
     # The ACME server URL
