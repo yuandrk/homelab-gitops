@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
-kind: Issuer
+kind: ClusterIssuer
 metadata:
-  name: letsencrypt
+  name: letsencrypt-staging
 spec:
   acme:
     # The ACME server URL
@@ -10,8 +10,8 @@ spec:
     email: yurii.andriuk@gmail.com
     # Name of a secret used to store the ACME account private key from step 3
     privateKeySecretRef:
-      name: letsencrypt-private-key
-    # Enable the HTTP-01 challenge provider
+      name: letsencrypt-staging
+    # Using the DNS01 provider instead of HTTP01
     solvers:
     - dns01:
         cloudflare:
