@@ -36,4 +36,4 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-staging" # Ensure this is a string
         hosts:
-          - host: "grafana.yuandrk.net" # Ensure this is a string
+          - grafana.yuandrk.net
