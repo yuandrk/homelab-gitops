@@ -38,4 +38,12 @@ spec:
       create: true
       passwordHash: $2a$10$hRYFs0jvq2CU4YDxii5Nn.nPqNj.WZW6m./3Utv6BBWUrqexH1evK
       username: admin
+    ingress:
+      enabled: true
+      ClassName: traefik
+      hosts:
+        - host: http://weave.yuandrk.net
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
 
