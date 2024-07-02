@@ -42,7 +42,7 @@ spec:
       enabled: true
       ClassName: traefik
       hosts:
-        - host: http://weave.yuandrk.net
+        - host: weave.yuandrk.net
           paths:
             - path: /
               pathType: ImplementationSpecific
