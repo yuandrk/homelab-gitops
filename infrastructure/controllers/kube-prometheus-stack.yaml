@@ -34,10 +34,10 @@ spec:
         enabled: true
         ingressClassName: traefik
         annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-staging"
+          cert-manager.io/cluster-issuer: "letsencrypt-staging" # Ensure this is a string
         tls:
           - hosts:
-              - "grafana.yuandrk.net"
+              - "grafana.yuandrk.net" # Ensure this is a string
             secretName: grafana-ingress
         hosts:
-          - host: "grafana.yuandrk.net"
+          - host: "grafana.yuandrk.net" # Ensure this is a string
