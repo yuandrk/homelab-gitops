@@ -10,7 +10,10 @@ spec:
       name: letsencrypt-staging
     solvers:
       - dns01:
-          cloudflare:
-            apiTokenSecretRef:
-              name: cloudflare-api-token-secret
-              key: api-token
+          route53:
+            region: eu-west-2
+            accessKeyID: AKIA3AMRFZS6O4PIS2IA
+            hostedZoneID: Z00590051L9DQ0G85AMA6
+            secretAccessKeySecretRef:
+              name: route53-secret
+              key: secret-access-key
