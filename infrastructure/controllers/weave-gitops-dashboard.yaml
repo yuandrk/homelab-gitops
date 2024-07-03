@@ -41,6 +41,12 @@ spec:
     ingress:
       enabled: true
       ClassName: traefik
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+      tls:
+        - hosts:
+            - weave.yuandrk.net
+          secretName: weave-ingress-staging
       hosts:
         - host: weave.yuandrk.net
           paths:
