@@ -42,11 +42,11 @@ spec:
       enabled: true
       ClassName: traefik
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-production
+        cert-manager.io/cluster-issuer: letsencrypt-prod
       tls:
         - hosts:
             - weave.yuandrk.net
-          secretName: weave-ingress-staging-prod
+          secretName: weave-ingress-prod
       hosts:
         - host: weave.yuandrk.net
           paths:
