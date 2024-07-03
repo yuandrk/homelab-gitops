@@ -38,6 +38,6 @@ spec:
         tls:
           - hosts:
               - grafana.yuandrk.net
-            secretName: grafana-ingress
+            secretName: grafana-ingress-qgwrl
         hosts:
           - grafana.yuandrk.net
