@@ -33,3 +33,5 @@ spec:
     ollama:
       enabled: true
       fullnameOverride: "open-webui-ollama"
+    nodeSelector:
+      kubernetes.io/arch: amd64
