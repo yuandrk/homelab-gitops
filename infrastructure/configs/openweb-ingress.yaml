@@ -1,0 +1,25 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: openwebui
+  namespace: openwebui
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+
+spec:
+  tls:
+    - hosts:
+        - ia.yuandrk.net
+      secretName: ia-ingress-staging
+  rules:
+    - host: "ia.yuandrk.net"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: open-webui
+                port:
+                  number: 80
