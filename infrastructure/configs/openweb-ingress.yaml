@@ -5,13 +5,13 @@ metadata:
   name: openweb-ingress
   namespace: openweb
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-staging
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 
 spec:
   tls:
     - hosts:
         - ia.yuandrk.net
-      secretName: ia-ingress-staging
+      secretName: ia-ingress-prod
   rules:
     - host: "ia.yuandrk.net"
       http:
