@@ -39,16 +39,15 @@ spec:
       Size: 100Gi
     ingress:
       enabled: true
-      ClassName: traefik
+      class: traefik
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
       tls:
         - hosts:
             - ia.yuandrk.net
-          secretName: ia-ingress-stating
+          secretName: ia-ingress-staging
       hosts:
         - host: ia.yuandrk.net
           paths:
             - path: /
               pathType: ImplementationSpecific
-
