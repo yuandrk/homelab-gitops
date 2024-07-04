@@ -37,4 +37,18 @@ spec:
       disktype: ssd
     persistence:
       Size: 100Gi
-      
+    ingress:
+      enabled: true
+      ClassName: traefik
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+      tls:
+        - hosts:
+            - ia.yuandrk.net
+          secretName: ia-ingress-stating
+      hosts:
+        - host: ia.yuandrk.net
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
+
