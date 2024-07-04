@@ -35,3 +35,6 @@ spec:
       fullnameOverride: "open-webui-ollama"
     nodeSelector:
       disktype: ssd
+    persistence:
+      Size: 100Gi
+      
