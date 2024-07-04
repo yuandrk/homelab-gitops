@@ -2,8 +2,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: openwebui
-  namespace: openwebui
+  name: openweb-ingress
+  namespace: openweb
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
 
