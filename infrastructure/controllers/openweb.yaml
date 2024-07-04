@@ -33,5 +33,5 @@ spec:
     ollama:
       enabled: true
       fullnameOverride: "open-webui-ollama"
-  nodeSelector:
-    disktype: ssd
+    nodeSelector:
+      disktype: ssd
