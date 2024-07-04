@@ -4,3 +4,4 @@ resources:
   - weavegitops-ingress.yaml
   - clusterissuer-staging.yaml
   - clusterissuer-prod.yaml
+  - openweb-ingress.yaml
