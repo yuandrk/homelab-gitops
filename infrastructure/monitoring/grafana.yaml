@@ -47,5 +47,5 @@ spec:
     sidecar:
       datasources: 
         enabled: true
-        label: grafana_datasources
+        label: grafana_datasource
         lebelValue: "1"
