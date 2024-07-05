@@ -4,3 +4,4 @@ resources:
   - clusterissuer-staging.yaml
   - clusterissuer-prod.yaml
   - openweb-ingress.yaml
+  - grafana-datasources.yaml
