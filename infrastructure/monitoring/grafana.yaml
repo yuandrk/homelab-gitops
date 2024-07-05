@@ -36,10 +36,15 @@ spec:
           secretName: grafana-ingress-staging
       hosts:
         - grafana.yuandrk.net
-      persistence:
+    persistence:
+      enabled: true
+      type: pvc
+      storageClassName: local-path
+      accessModes:
+        - ReadWriteOnce
+      size: 5Gi
+    sidecar:
+      datasources: 
         enabled: true
-        type: pvc
-        storageClassName: local-path
-        accessModes:
-          - ReadWriteOnce
-        size: 5Gi
+        label: grafana_datasources
+        lebelValue: "1"
