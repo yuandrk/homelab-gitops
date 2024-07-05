@@ -49,3 +49,22 @@ spec:
         enabled: true
         label: grafana_datasource
         lebelValue: "1"
+    dashboardProviders:
+      dashboardproviders.yaml:
+        apiVersion: 1
+        providers:
+        - name: 'default'
+          orgId: 1
+          folder: ''
+          type: file
+          disableDeletion: false
+          updateIntervalSeconds: 10
+          allowUiUpdates: true
+          options:
+            path: /var/lib/grafana/dashboards/default
+            foldersFromFilesStructure: false
+    extraVolumeMounts:
+      - name: collection
+        mountPath: /var/lib/grafana/dashboards/default
+        readOnly: true
+        
