@@ -6,7 +6,7 @@ metadata:
   labels:
     grafana_datasource: "1"
 Data:
-  datasource.yaml: |-
+  prometheus.yaml: |-
     apiVersion: 1
     datasources:
     - name: Prometheus-from-code 
