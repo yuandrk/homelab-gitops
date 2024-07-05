@@ -6,7 +6,8 @@ This repository contains all configurations and documentation for my home lab.
 
 - [Grafana](grafana.yuandrk.net)
 - [Weave GitOps](https://weave.yuandrk.net/)
-  
+- [NextCloud](https://nextcloud.com/)
+
 
 ## Tooling
 
@@ -32,8 +33,8 @@ This repository contains all configurations and documentation for my home lab.
 
 - [x] Install Flux.
 - [x] Configure Terraform.
-- [x] AWS Route53
-- [ ] Store secrets in AWS Secrets   
+- [x] AWS Route53.
+- [ ] Store secrets in AWS Secrets.
 - [ ] Implement SOPS for secret management.
 
 ## Using k3s
