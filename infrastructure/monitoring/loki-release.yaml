@@ -31,7 +31,7 @@ spec:
             period: 24h
           object_store: filesystem # we're storing on filesystem so there's no real persistence here.
           schema: v13
-    singleBinary:
+    SimpleScalable:
       replicas: 1
     read:
       replicas: 0
