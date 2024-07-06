@@ -33,6 +33,12 @@ spec:
           schema: v13
     SingleBinary:
       replicas: 1
+    read:
+      replicas: 0
+    backend:
+      replicas: 0
+    write:
+      replicas: 0
     monitoring:
       selfMonitoring:
         enabled: true
