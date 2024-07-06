@@ -1,3 +1,18 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: teledoist
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: teledoist
+  namespace: teledoist
+spec:
+  interval: 1m0s
+  ref:
+    branch: main
+  url: https://github.com/yuandrk/teledoist
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
