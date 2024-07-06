@@ -51,6 +51,8 @@ spec:
           secretName: grafana-ingress-prod
       hosts:
         - grafana.yuandrk.net
+
+
     persistence:
       enabled: true
       type: pvc
@@ -58,11 +60,28 @@ spec:
       accessModes:
         - ReadWriteOnce
       size: 5Gi
+
     sidecar:
       datasources: 
         enabled: true
         label: grafana_datasource
         lebelValue: "1"
+      dashboards:
+        enabled: true
+        label: grafana_dashboard
+        labelValue: "1"
+        searchNamespace: ALL
+
+        annotations: {}
+        multiclaster:
+          global:
+            enabled: false
+          etcd:
+            enabled: false
+        provider:
+          allowUiUpdates: false
+
+  ### configuration to load defult dashboards from persistenf volume
     dashboardProviders:
       dashboardproviders.yaml:
         apiVersion: 1
