@@ -23,3 +23,11 @@ spec:
         type: "filesystem"
     singleBinary:
       replicas: 1
+    simpleScalable:
+      read:
+        replicas: 0
+      write:
+        replicas: 0
+      backend:
+        replicas: 0
+    deploymentMode: SingleBinary
