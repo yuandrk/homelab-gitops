@@ -20,7 +20,7 @@ spec:
       commonConfig:
         replication_factor: 1
       storage:
-        type: "filesystem"
+        type: 'filesystem'
       schemaConfig:
         configs:
         - from: "2024-01-01"
