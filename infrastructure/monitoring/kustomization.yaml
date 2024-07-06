@@ -5,4 +5,3 @@ resources:
   - weave-gitops-dashboard.yaml
   - kube-prometheus-stack.yaml
   - loki-release.yaml
-  - loki-repository.yaml
