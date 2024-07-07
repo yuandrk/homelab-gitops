@@ -4,4 +4,4 @@ resources:
   - grafana.yaml
   - weave-gitops-dashboard.yaml
   - kube-prometheus-stack.yaml
-  - loki-release.yaml
+ # - loki-release.yaml
