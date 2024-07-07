@@ -1,40 +1,77 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
   name: loki
-  namespace: monitoring
 spec:
-  interval: 30m
+  interval: 5m
   chart:
     spec:
+      version: "5.x"
       chart: loki
-      version: "6.6.5"
       sourceRef:
         kind: HelmRepository
-        name: grafana
-        namespace: monitoring
-      interval: 12h
+        name: grafana-charts
+      interval: 60m
   values:
     loki:
       auth_enabled: false
+      serviceMonitor:
+        enabled: true
       commonConfig:
         replication_factor: 1
       storage:
-        type: "filesystem"
-      schemaConfig:
-        configs:
-        - from: "2024-01-01"
-          store: tsdb
-          index:
-            prefix: loki_index_
-            period: 24h
-          object_store: filesystem # we're storing on filesystem so there's no real persistence here.
-          schema: v13
+        type: 'filesystem'
+      chunk_store_config:
+        max_look_back_period: 24h
+      # Configure compactor
+      compactor:
+        shared_store: filesystem
+        compaction_interval: 10m
+        delete_request_cancel_period: 10m
+        retention_enabled: true
+        retention_delete_delay: 2h
+        retention_delete_worker_count: 150
+      limits_config:
+        retention_period: 24h
+    gateway:
+      enabled: true
     singleBinary:
       replicas: 1
-    read:
-      replicas: 0
-    backend:
-      replicas: 0
-    write:
-      replicas: 0
+    # Monitoring section determines which monitoring features to enable
+    monitoring:
+      # Dashboards for monitoring Loki
+      dashboards:
+        # -- If enabled, create configmap with dashboards for monitoring Loki
+        enabled: false
+      selfMonitoring:
+        enabled: false
+        grafanaAgent:
+          installOperator: false
+      # The Loki canary pushes logs to and queries from this loki installation
+      # to test that it's working correctly
+      lokiCanary:
+        enabled: false
+    # -- Section for configuring optional Helm test
+    test:
+      enabled: false
+    extraObjects:
+      - apiVersion: v1
+        kind: ConfigMap
+        metadata:
+          name: loki-datasource
+          labels:
+            app: loki
+            chart: loki
+            release: loki
+            grafana_datasource: "1"
+            app.kubernetes.io/part-of: kube-prometheus-stack
+        data:
+          loki-datasource.yaml: |-
+            apiVersion: 1
+            datasources:
+            - name: Loki
+              type: loki
+              access: proxy
+              url: http://loki:{{ .Values.loki.server.http_listen_port }}
+              version: 1
+              isDefault: false
