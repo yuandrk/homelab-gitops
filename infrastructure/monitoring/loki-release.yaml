@@ -1,3 +1,11 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: grafana-charts
+spec:
+  interval: 120m0s
+  url: https://grafana.github.io/helm-charts
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
@@ -12,6 +20,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: grafana-charts
+        namespace: monitoring
       interval: 60m
   values:
     loki:
@@ -60,12 +69,12 @@ spec:
         kind: ConfigMap
         metadata:
           name: loki-datasource
+          namespace: monitoring
           labels:
             app: loki
             chart: loki
             release: loki
             grafana_datasource: "1"
-            app.kubernetes.io/part-of: kube-prometheus-stack
         data:
           loki-datasource.yaml: |-
             apiVersion: 1
