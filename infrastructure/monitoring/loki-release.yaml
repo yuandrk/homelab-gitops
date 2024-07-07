@@ -39,13 +39,3 @@ spec:
       replicas: 0
     write:
       replicas: 0
-    monitoring:
-      selfMonitoring:
-        enabled: true
-        grafanaAgent:
-          installOperator: false
-      dashboards:
-        enabled: false
-      rules:
-        enabled: false
-        alerting: false
