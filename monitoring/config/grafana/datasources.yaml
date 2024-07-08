@@ -4,25 +4,29 @@ metadata:
   name: grafana-datasources
   namespace: monitoring
   labels:
-    grafana_datasource: "1"
+    grafana_datasource: "1" # default value for: sidecar.datasources.label
 data:
-  prometheus.yaml: |-
+  datasource.yaml: |-
     apiVersion: 1
     datasources:
-    - name: Prometheus-from-code 
+    - name: Prometheus
       type: prometheus
       uid: prometheus
-      url: http://kube-prometheus-stack-prometheus.monitoring:9090/ 
+      url: http://kube-prometheus-stack-prometheus.monitoring:9090/
       # access: proxy
       isDefault: true
       jsonData:
-        timeInterval: "30s"
         httpMethod: POST
+        timeInterval: 30s
     - name: Alertmanager
       type: alertmanager
       uid: alertmanager
-      url: http://kube-prometheus-stack-alertmanager.monitoring:9093/ 
-      # access: proxy
+      url: http://prometheus-stack-kube-prom-alertmanager.monitoring:9093/
+      access: proxy
       jsonData:
         handleGrafanaManagedAlerts: false
         implementation: prometheus
+    - name: Loki
+      type: loki
+      uid: loki
+      url: http://loki.monitoring:3100/

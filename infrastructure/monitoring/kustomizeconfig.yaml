@@ -1,9 +1,0 @@
-nameReference:
-- kind: ConfigMap
-  metadata:
-    name: ConfigMapGenerator
-    namespace: monitoring
-  version: v1
-  fieldSpecs:
-  - path: spec/valuesFrom/name
-    kind: HelmRelease
