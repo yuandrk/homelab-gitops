@@ -5,8 +5,8 @@ configMapGenerator:
   - name: default-dashboards
     files:
       - standard-dashboards/cluster.json
-      - control-plane.json
-      - logs.yaml 
+      - standard-dashboards/control-plane.json
+      - standard-dashboards/logs.yaml 
     options:
       labels:
         grafana_dashboard: "1"
