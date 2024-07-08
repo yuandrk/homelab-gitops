@@ -17,6 +17,8 @@ spec:
   values:
     loki:
       auth_enabled: false
+      server:
+        http_listen_port: 3100
       commonConfig:
         replication_factor: 1
       storage:
@@ -31,18 +33,18 @@ spec:
               period: 24h
             object_store: filesystem # we're storing on filesystem so there's no real persistence here.
             schema: v13
-            
+
     simpleScalable:
       enabled: false
     
     singleBinary:
       replicas: 1
     read:
-      replicas: 0
+      replicas: 1
     backend:
       replicas: 0
     write:
-      replicas: 0
+      replicas: 1
 
 
     monitoring:
