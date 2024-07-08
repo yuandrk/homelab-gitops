@@ -66,11 +66,6 @@ spec:
         enabled: true
         label: grafana_datasource
         lebelValue: "1"
-      dashboards:
-        enabled: true
-        label: grafana_dashboard
-        labelValue: "1"
-        searchNamespace: ALL
 
         annotations: {}
         multiclaster:
