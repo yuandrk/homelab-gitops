@@ -1,81 +1,34 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: loki
-  namespace: monitoring
+  name: loki-stack
 spec:
-  interval: 30m
+  interval: 5m
+  dependsOn:
+    - name: kube-prometheus-stack
   chart:
     spec:
-      chart: loki
-      version: "6.5.0"
+      version: "2.x"
+      chart: loki-stack
       sourceRef:
         kind: HelmRepository
-        name: grafana
-        namespace: monitoring
-      interval: 12h
+        name: grafana-charts
+      interval: 60m
+  # https://github.com/grafana/helm-charts/blob/main/charts/loki-stack/values.yaml
+  # https://github.com/grafana/loki/blob/main/production/helm/loki/values.yaml
   values:
-    loki:
-      auth_enabled: false
-      commonConfig:
-        replication_factor: 1
-      storage:
-        type: "filesystem"
-
-      schemaConfig:
-        configs:
-          - from: "2024-01-01"
-            store: tsdb
-            index:
-              prefix: loki_index_
-              period: 24h
-            object_store: filesystem # we're storing on filesystem so there's no real persistence here.
-            schema: v13
-
-    deploymentMode: SimpleScalable
-
-    backend:
-      replicas: 3
-    read:
-      replicas: 3
-    write:
-      replicas: 3
-
-    # Enable minio for storage
-    minio:
+    promtail:
       enabled: true
-
-    # Zero out replica counts of other deployment modes
-    singleBinary:
-      replicas: 0
-
-    ingester:
-      replicas: 0
-    querier:
-      replicas: 0
-    queryFrontend:
-      replicas: 0
-    queryScheduler:
-      replicas: 0
-    distributor:
-      replicas: 0
-    compactor:
-      replicas: 0
-    indexGateway:
-      replicas: 0
-    bloomCompactor:
-      replicas: 0
-    bloomGateway:
-      replicas: 0
-
-
-    monitoring:
-      selfMonitoring:
+    loki:
+      enabled: true
+      isDefault: false
+      serviceMonitor:
         enabled: true
-        grafanaAgent:
-          installOperator: false
-      dashboards:
-        enabled: false
-      rules:
-        enabled: false
-        alerting: false
+        additionalLabels:
+          app.kubernetes.io/part-of: kube-prometheus-stack
+      config:
+        chunk_store_config:
+          max_look_back_period: 0s
+        table_manager:
+          retention_deletes_enabled: true
+          retention_period: 12h
