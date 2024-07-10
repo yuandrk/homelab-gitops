@@ -4,31 +4,33 @@ metadata:
   name: loki
   namespace: monitoring
 spec:
-  interval: 5m
-  dependsOn:
-    - name: kube-prometheus-stack
+  interval: 30m
   chart:
     spec:
-      version: "6.5.0"
       chart: loki
+      version: "6.5.0"
       sourceRef:
         kind: HelmRepository
         name: grafana
         namespace: monitoring
-      interval: 60m
+      interval: 12h
   values:
-    promtail:
-      enabled: true
     loki:
       auth_enabled: false
-      enabled: true
-      isDefault: true
-      serviceMonitor:
+      commonConfig:
+        replication_factor: 1
+      storage:
+        type: "filesystem"
+    singleBinary:
+      replicas: 1
+
+    monitoring:
+      selfMonitoring:
         enabled: true
-        additionalLabels:
-      config:
-        chunk_store_config:
-          max_look_back_period: 0s
-        table_manager:
-          retention_deletes_enabled: true
-          retention_period: 12h
+        grafanaAgent:
+          installOperator: false
+      dashboards:
+        enabled: false
+      rules:
+        enabled: false
+        alerting: false
