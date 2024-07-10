@@ -19,3 +19,9 @@ variable "FLUX_GITHUB_TARGET_PATH" {
   default     = "clusters"
   description = " Flux manifets subbdirectory"
 }
+
+variable "create_repository" {
+  type    = bool
+  default = false
+  description = "Set to true to create a new GitHub repository"
+}

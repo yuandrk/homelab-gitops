@@ -12,3 +12,5 @@ terraform/.terraform/providers/registry.terraform.io/integrations/github/6.2.3/d
 terraform/.terraform/providers/registry.terraform.io/integrations/github/6.2.3/darwin_arm64/LICENSE
 terraform/.terraform/providers/registry.terraform.io/integrations/github/6.2.3/darwin_arm64/README.md
 terraform/.terraform/providers/registry.terraform.io/integrations/github/6.2.3/darwin_arm64/terraform-provider-github_v6.2.3
+terraform/.terraform/providers/registry.terraform.io/hashicorp/null/3.2.2/darwin_arm64/terraform-provider-null_v3.2.2_x5
+terraform/terraform.tfstate.backup

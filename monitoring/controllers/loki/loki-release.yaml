@@ -1,7 +1,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: loki-stack
+  name: loki
   namespace: monitoring
 spec:
   interval: 5m
@@ -9,19 +9,18 @@ spec:
     - name: kube-prometheus-stack
   chart:
     spec:
-      version: "2.10.2"
-      chart: loki-stack
+      version: "6.5.0"
+      chart: loki
       sourceRef:
         kind: HelmRepository
-        name: grafana-charts
+        name: grafana
         namespace: monitoring
       interval: 60m
-  # https://github.com/grafana/helm-charts/blob/main/charts/loki-stack/values.yaml
-  # https://github.com/grafana/loki/blob/main/production/helm/loki/values.yaml
   values:
     promtail:
       enabled: true
     loki:
+      auth_enabled: false
       enabled: true
       isDefault: true
       serviceMonitor:
