@@ -1,6 +1,6 @@
 provider "flux" {
   kubernetes = {
-    config_path = "~/.kube/config"
+    config_path = "~/.kube/config_s"
   }
   git = {
     url  = "https://github.com/${var.GITHUB_OWNER}/${var.FLUX_GITHUB_REPO}.git"
