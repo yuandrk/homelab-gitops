@@ -37,20 +37,21 @@ Cert-manager requires permissions to modify Route53 in order to complete DNS cha
     }
   ]
 }
+```
 
 ### Step 2: Create Secret for AWS Credentials
 
 Store the AWS credentials in a Kubernetes secret to be used by cert-manager. Replace the secret-access-key value with your actual AWS secret access key.
 
 ``` bash
-kubectl create secret generic route53-secret --from-literal=secret-access-key="YOUR_AWS_SECRET_ACCESS_KEY"
+kubectl create secret generic route53-secret --from-literal=secret-access-key="YOUR_AWS_SECRET_ACCESS_KEY" -n "YOUR_NAMESPACE"
 ```
 
 ### Step 3: Create a Let’s Encrypt Issuer
 
 Set up a Let’s Encrypt issuer to validate and issue the certificates. Start with a staging environment to ensure everything is configured correctly before moving to production.
 
-``` yaml 
+``` yaml
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
@@ -76,7 +77,7 @@ spec:
 
 Update the values in your Helm chart for the application you want to secure, e.g., Grafana. Initially, use the staging issuer to avoid hitting rate limits.
 
-``` yaml 
+``` yaml
 values: 
   grafana:
     ingress:
@@ -89,11 +90,12 @@ values:
             - grafana.yuandrk.net
           secretName: grafana-ingress-staging
 ```
+
 **Transition to Production**
 
 Once verified with staging, switch the issuer to the production one by updating the annotations in your Helm chart values:
 
-``` yaml 
+``` yaml
 values:
   grafana:
     ingress:
@@ -107,7 +109,7 @@ values:
           secretName: grafana-ingress-prod
 ```
 
-#### Resources 
+#### Resources
 
 For more detailed guidance:
 
