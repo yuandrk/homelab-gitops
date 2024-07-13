@@ -6,7 +6,8 @@ metadata:
   namespace: ownapps
 spec:
   interval: 24h
-  url: oci://tccr.io/truecharts/it-tools
+  url: "oci://tccr.io/truecharts/it-tools"
+  type: oci
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
