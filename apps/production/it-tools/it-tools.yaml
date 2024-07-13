@@ -17,9 +17,9 @@ spec:
   interval: 30m
   chart:
     spec:
-      chart: 
+      chart: it-tools 
       sourceRef:
         kind: HelmRepository
-        name: mychart
+        name: it-tools
         namespace: ownapps
       interval: 1m0s
