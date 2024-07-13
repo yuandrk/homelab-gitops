@@ -34,19 +34,22 @@ spec:
       enabled: false
     nodeSelector:
       disktype: ssd
-    persistence:
-      Size: 50Gi
+
     ingress:
       enabled: true
+      class: traefik  # Note: In newer Kubernetes versions, use ingressClassName instead
       ingressClassName: traefik
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
+      hosts:
+        - host: smart.yuandrk.net
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
       tls:
         - hosts:
             - smart.yuandrk.net
           secretName: ia-ingress-prod
-      hosts:
-        - smart.yuandrk.net
 
     extraEnvVars:
     - name: OPENAI_API_KEY
