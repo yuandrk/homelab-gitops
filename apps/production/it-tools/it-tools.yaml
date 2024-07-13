@@ -1,0 +1,25 @@
+
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: it-tools
+  namespace: ownapps
+spec:
+  interval: 24h
+  url: oci://tccr.io/truecharts/it-tools
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: it-tools
+  namespace: ownapps
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: 
+      sourceRef:
+        kind: HelmRepository
+        name: mychart
+        namespace: ownapps
+      interval: 1m0s
