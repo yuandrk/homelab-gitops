@@ -1,0 +1,45 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: database
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: postgresql
+  namespace: database
+spec:
+  interval: 24h
+  url: https://charts.bitnami.com/bitnami
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: postgresql
+  namespace: database
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: postgresql
+      version: "16.3.0" 
+      sourceRef:
+        kind: HelmRepository
+        name: postgresql
+        namespace: database
+      interval: 12h
+  values: 
+    global:
+      storageClass: "local-path"
+    primary:
+      persistence:
+        enabled: true
+        storageClass: "local-path"
+        size: "10Gi"
+      nodeSelector:
+        disktype: ssd
+    volumePermissions:
+      enabled: true
+      
+
