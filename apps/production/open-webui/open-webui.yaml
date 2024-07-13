@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: openweb
+  name: open-webui
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
