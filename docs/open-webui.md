@@ -21,3 +21,5 @@ nodeSelector:
   disktype: ssd
 ```
 
+kubectl create secret generic openai-api-key --from-literal=api-key="my-base64-encoded-api-key" -n "YOUR_NAMESPACE"
+```

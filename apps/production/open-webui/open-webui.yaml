@@ -32,3 +32,11 @@ spec:
   values:
     nodeSelector:
       disktype: ssd
+
+    extraEnvVars:
+    - name: OPENAI_API_KEY
+      valueFrom:
+        secretKeyRef:
+          name: openai-api-key
+          key: api-key
+  
