@@ -16,7 +16,8 @@ metadata:
 spec:
   chart:
     spec:
-      chart: my-nocodb
+      chart: nocodb
+      version: 0.38.0
       sourceRef:
         kind: HelmRepository
         name: my-nocodb
