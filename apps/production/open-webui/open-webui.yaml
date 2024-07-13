@@ -35,21 +35,6 @@ spec:
     nodeSelector:
       disktype: ssd
 
-    ingress:
-      enabled: true
-      ingressClassName: traefik
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-prod
-      hosts:
-        - host: "smart.yuandrk.net"
-          paths:
-            - path: /
-              pathType: ImplementationSpecific
-      tls:
-        - hosts:
-            - "smart.yuandrk.net"
-          secretName: ia-ingress-prod
-
     extraEnvVars:
     - name: OPENAI_API_KEY
       valueFrom:

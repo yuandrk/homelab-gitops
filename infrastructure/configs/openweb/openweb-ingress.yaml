@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - ia.yuandrk.net
+        - smart.yuandrk.net
       secretName: ia-ingress-prod
   rules:
-    - host: "ia.yuandrk.net"
+    - host: "smart.yuandrk.net"
       http:
         paths:
           - path: /
