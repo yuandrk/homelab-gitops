@@ -37,18 +37,17 @@ spec:
 
     ingress:
       enabled: true
-      class: traefik  # Note: In newer Kubernetes versions, use ingressClassName instead
       ingressClassName: traefik
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
       hosts:
-        - host: smart.yuandrk.net
+        - host: "smart.yuandrk.net"
           paths:
             - path: /
               pathType: ImplementationSpecific
       tls:
         - hosts:
-            - smart.yuandrk.net
+            - "smart.yuandrk.net"
           secretName: ia-ingress-prod
 
     extraEnvVars:
