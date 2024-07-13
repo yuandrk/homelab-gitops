@@ -2,23 +2,22 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: it-tools
+  name: my-nocodb
   namespace: ownapps
 spec:
   interval: 24h
-  type: oci
-  url: oci://tccr.io/truecharts
+  url: https://zekker6.github.io/helm-charts
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: it-tools
+  name: my-nocodb
   namespace: ownapps
 spec:
   chart:
     spec:
-      chart: it-tools
+      chart: my-nocodb
       sourceRef:
         kind: HelmRepository
-        name: it-tools
+        name: my-nocodb
         namespace: ownapps
