@@ -23,3 +23,10 @@ spec:
         name: jellyfin
         namespace: ownapps
       interval: 1m0s
+  values:  # https://github.com/utkuozdemir/helm-charts/blob/master/jellyfin/values.yaml
+    persistence:
+      enabled: true
+      storageClass: "default"  # todo: NFS 
+      accessModes:
+        - ReadWriteOnce
+      size: 10Gi  # Adjust size according to the need
