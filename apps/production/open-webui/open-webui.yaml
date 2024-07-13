@@ -32,18 +32,3 @@ spec:
   values:
     nodeSelector:
       disktype: ssd
-    ingress:
-      enabled: true
-      ClassName: traefik
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-prod
-      tls:
-        - hosts:
-            - gpt.yuandrk.net
-          secretName: gpt-ingress-prod
-      hosts:
-        - host: gpt.yuandrk.net
-          paths:
-            - path: /
-              pathType: ImplementationSpecific
-
