@@ -15,7 +15,6 @@ metadata:
   name: it-tools
   namespace: ownapps
 spec:
-  interval: 30m
   chart:
     spec:
       chart: it-tools
@@ -23,4 +22,3 @@ spec:
         kind: HelmRepository
         name: it-tools
         namespace: ownapps
-      interval: 1m0s
