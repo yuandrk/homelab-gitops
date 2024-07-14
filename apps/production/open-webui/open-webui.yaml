@@ -37,7 +37,7 @@ spec:
     persistence:
       enabled: true
       size: 15Gi
-      storageClass: local-path  # Using the default local-path provisioner in K3s
+      storageClass: "default"
       accessModes:
         - ReadWriteOnce
     valueFrom:
