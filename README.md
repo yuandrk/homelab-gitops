@@ -37,6 +37,7 @@ This repository contains all configurations and documentation for my home lab.
 - [x] AWS Route53.
 - [ ] Store secrets in AWS Secrets.
 - [ ] Implement SOPS for secret management.
+- [] [cilium](https://artifacthub.io/packages/helm/cilium/cilium)
 
 ## Using k3s
 

@@ -20,6 +20,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: finance
+                name: finance-actual
                 port:
                   number: 5006
