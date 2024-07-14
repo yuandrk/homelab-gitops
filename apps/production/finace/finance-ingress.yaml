@@ -20,6 +20,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: home
+                name: finance
                 port:
                   number: 5006

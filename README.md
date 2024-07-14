@@ -19,8 +19,9 @@ This repository contains all configurations and documentation for my home lab.
 - **Monitoring Stack**: Deploy Prometheus and Grafana for monitoring services.
 - **Project Hosting**:
   - [Teledoist](https://github.com/yuandrk/teledoist) - A personal project.
-  - [Weawe]
+  - [Weawe](https://gitops.weave.works/) - Weave GitOps is a powerful extension to Flux, a leading GitOps engine and CNCF project.
   - [OpenWeb](https://openwebui.com/) - A project aimed at open web interfaces.
+  - [Actualbudget](https://actualbudget.org/) - Actual Budget is a super fast and privacy-focused app for managing your finances.
     - Ensure services are accessible via URLs using:
       - Ingress
       - TLS encryption
