@@ -40,7 +40,9 @@ spec:
       storageClass: "default"
       accessModes:
         - ReadWriteOnce
-    valueFrom:
-      secretKeyRef:
-        name: openai-api-key
-        key: api-key
+    extraEnvVars:
+    - name: OPENAI_API_KEY
+      valueFrom:
+        secretKeyRef:
+          name: openai-api-key
+          key: api-key
