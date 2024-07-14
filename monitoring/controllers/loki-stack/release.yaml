@@ -24,6 +24,8 @@ spec:
       enabled: true
       auth_enabled: false
       isDefault: false
+      image:
+        tag: "2.9.2"
       serviceMonitor:
         enabled: true
         additionalLabels:
