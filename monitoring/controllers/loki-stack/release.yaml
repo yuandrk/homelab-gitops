@@ -22,6 +22,7 @@ spec:
       enabled: true
     loki:
       enabled: true
+      auth_enabled: false
       isDefault: false
       serviceMonitor:
         enabled: true
