@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - home.yuandrk.net
-      secretName: home-ingress-prod
+        - finace.yuandrk.net
+      secretName: finace-ingress-prod
   rules:
-    - host: "home.yuandrk.net"
+    - host: "finace.yuandrk.net"
       http:
         paths:
           - path: /
