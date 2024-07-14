@@ -2,7 +2,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: finace
+  name: finance
   namespace: ownapps
 spec:
   interval: 24h
@@ -11,7 +11,7 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: finace
+  name: finance
   namespace: ownapps
 spec:
   interval: 30m
@@ -20,7 +20,7 @@ spec:
       chart: actual
       sourceRef:
         kind: HelmRepository
-        name: finace
+        name: finance
         namespace: ownapps
       interval: 1m0s
   

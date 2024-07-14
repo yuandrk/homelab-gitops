@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - finace.yuandrk.net
-      secretName: finace-ingress-prod
+        - finance.yuandrk.net
+      secretName: finance-ingress-prod
   rules:
-    - host: "finace.yuandrk.net"
+    - host: "finance.yuandrk.net"
       http:
         paths:
           - path: /
@@ -22,4 +22,4 @@ spec:
               service:
                 name: home
                 port:
-                  number: 3000
+                  number: 5006
