@@ -1,0 +1,25 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: home-ingress
+  namespace: ownapps
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+
+spec:
+  tls:
+    - hosts:
+        - home.yuandrk.net
+      secretName: home-ingress-prod
+  rules:
+    - host: "home.yuandrk.net"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: home
+                port:
+                  number: 3000
