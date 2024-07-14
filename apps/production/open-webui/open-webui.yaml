@@ -34,3 +34,13 @@ spec:
       enabled: false
     nodeSelector:
       disktype: ssd
+    persistence:
+      enabled: true
+      size: 15Gi
+      storageClass: local-path  # Using the default local-path provisioner in K3s
+      accessModes:
+        - ReadWriteOnce
+    valueFrom:
+      secretKeyRef:
+        name: openai-api-key
+        key: api-key

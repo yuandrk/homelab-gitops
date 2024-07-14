@@ -19,7 +19,8 @@ Once the node is labeled, modify the deployment configuration to specifically ta
 ``` yaml 
 nodeSelector:
   disktype: ssd
-```
+``` 
 
+``` bash 
 kubectl create secret generic openai-api-key --from-literal=api-key="my-base64-encoded-api-key" -n "YOUR_NAMESPACE"
 ```
