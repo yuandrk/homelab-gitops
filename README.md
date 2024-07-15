@@ -20,6 +20,7 @@ This repository contains all configurations and documentation for my home lab.
 - **Project Hosting**:
   - [Teledoist](https://github.com/yuandrk/teledoist) - A personal project.
   - [Weawe](https://gitops.weave.works/) - Weave GitOps is a powerful extension to Flux, a leading GitOps engine and CNCF project.
+  - [Jellyfin](https://jellyfin.org/) - media server 
   - [OpenWeb](https://openwebui.com/) - A project aimed at open web interfaces.
   - [Actualbudget](https://actualbudget.org/) - Actual Budget is a super fast and privacy-focused app for managing your finances.
     - Ensure services are accessible via URLs using:
@@ -35,9 +36,12 @@ This repository contains all configurations and documentation for my home lab.
 - [x] Install Flux.
 - [x] Configure Terraform.
 - [x] AWS Route53.
+- [ ] Custom dashboard for Grafana 
+- [ ] Backup for Actualbudget 
+- [ ] NFS Volume for jellyfin 
 - [ ] Store secrets in AWS Secrets.
 - [ ] Implement SOPS for secret management.
-- [] [cilium](https://artifacthub.io/packages/helm/cilium/cilium)
+- [ ] [cilium](https://artifacthub.io/packages/helm/cilium/cilium)
 
 ## Using k3s
 
