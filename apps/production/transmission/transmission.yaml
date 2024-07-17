@@ -1,25 +1,25 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: jellyfin
+  name: transmission
   namespace: ownapps
 spec:
   interval: 24h
-  url: https://utkuozdemir.org/helm-charts
+  url: https://k8s-at-home.com/charts/
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: jellyfin
+  name: transmission
   namespace: ownapps
 spec:
   interval: 30m
   chart:
     spec:
-      chart: jellyfin
+      chart: transmission
       sourceRef:
         kind: HelmRepository
-        name: jellyfin
+        name: transmission 
         namespace: ownapps
       interval: 1m0s
   values:  # https://github.com/utkuozdemir/helm-charts/blob/master/jellyfin/values.yaml
