@@ -22,7 +22,7 @@ spec:
         name: transmission 
         namespace: ownapps
       interval: 1m0s
-  values:  # https://github.com/utkuozdemir/helm-charts/blob/master/jellyfin/values.yaml
-    persistence:
-      enabled: true
-      existingClaim: shared-pvc 
+  # values:  # https://github.com/utkuozdemir/helm-charts/blob/master/jellyfin/values.yaml
+  #   persistence:
+  #     enabled: true
+  #     existingClaim: shared-pvc 
