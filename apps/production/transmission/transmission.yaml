@@ -27,18 +27,19 @@ spec:
       runAsUser: 1000  # Replace with actual UID
       runAsGroup: 1000  # Replace with actual GID
       fsGroup: 1000  # Replace with actual GID
-    
-    config:
-      enabled: true
-      mountPath: /config
-      existingClaim: shared-pvc 
 
-    downloads:
-      enabled: true
-      mountPath: /downloads
-      existingClaim: shared-pvc 
+    persistence:    
+      config:
+        enabled: true
+        mountPath: /config
+        existingClaim: shared-pvc 
 
-    watch:
-      enabled: true
-      mountPath: /watch
-      existingClaim: shared-pvc 
+      downloads:
+        enabled: true
+        mountPath: /downloads
+        existingClaim: shared-pvc 
+
+      watch:
+        enabled: true
+        mountPath: /watch
+        existingClaim: shared-pvc 
