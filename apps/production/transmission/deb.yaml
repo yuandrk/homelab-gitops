@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: debug-pod
+  namespace: ownapps
+spec:
+  securityContext:
+    runAsUser: 1000  # Replace with actual UID
+    runAsGroup: 1000  # Replace with actual GID
+    fsGroup: 1000  # Replace with actual GID
+  containers:
+  - name: debug
+    image: busybox
+    command: ["sh", "-c", "sleep infinity"]
+    volumeMounts:
+    - mountPath: /downloads
+      name: downloads
+    - mountPath: /config
+      name: config
+    - mountPath: /watch
+      name: watch
+  volumes:
+  - name: downloads
+    persistentVolumeClaim:
+      claimName: shared-pvc
+  - name: config
+    persistentVolumeClaim:
+      claimName: shared-pvc
+  - name: watch
+    persistentVolumeClaim:
+      claimName: shared-pvc
