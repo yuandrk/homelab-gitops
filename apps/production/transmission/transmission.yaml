@@ -61,12 +61,15 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: 9091
+    - name: web
+      port: 9091
       targetPort: 9091
-    - port: 51413
+    - name: peer-tcp
+      port: 51413
       targetPort: 51413
       protocol: TCP
-    - port: 51413
+    - name: peer-udp
+      port: 51413
       targetPort: 51413
       protocol: UDP
   selector:
