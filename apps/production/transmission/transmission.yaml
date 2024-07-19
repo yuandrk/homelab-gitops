@@ -23,11 +23,6 @@ spec:
         namespace: ownapps
       interval: 1m0s
   values: 
-    securityContext:
-      runAsUser: 1000  # Replace with actual UID
-      runAsGroup: 1000  # Replace with actual GID
-      fsGroup: 1000  # Replace with actual GID
-
     persistence:    
       config:
         enabled: true
