@@ -23,18 +23,24 @@ spec:
         namespace: ownapps
       interval: 1m0s
   values: 
+    global:
+      # Ensure the global settings are compatible
+      nameOverride: transmission
     persistence:    
       config:
         enabled: true
+        type: pvc
         mountPath: /config
         existingClaim: shared-pvc 
 
       downloads:
         enabled: true
+        type: pvc
         mountPath: /downloads
         existingClaim: shared-pvc 
 
       watch:
         enabled: true
+        type: pvc
         mountPath: /watch
         existingClaim: shared-pvc 
