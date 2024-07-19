@@ -1,46 +1,75 @@
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: transmission
   namespace: ownapps
 spec:
-  interval: 24h
-  url: https://k8s-at-home.com/charts/
----
-apiVersion: helm.toolkit.fluxcd.io/v2
-kind: HelmRelease
-metadata:
-  name: transmission
-  namespace: ownapps
-spec:
-  interval: 30m
-  chart:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: transmission
+  template:
+    metadata:
+      labels:
+        app: transmission
     spec:
-      chart: transmission
-      sourceRef:
-        kind: HelmRepository
-        name: transmission 
-        namespace: ownapps
-      interval: 1m0s
-  values: 
-    global:
-      # Ensure the global settings are compatible
-      nameOverride: transmission
-    persistence:    
-      config:
-        enabled: true
-        type: pvc
-        mountPath: /config
-        existingClaim: shared-pvc 
+      containers:
+        - name: transmission
+          image: lscr.io/linuxserver/transmission:latest
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: TZ
+              value: "Etc/UTC"
+            - name: TRANSMISSION_WEB_HOME
+              value: "" #optional
+            - name: USER
+              value: "" #optional
+            - name: PASS
+              value: "" #optional
+            - name: WHITELIST
+              value: "" #optional
+            - name: PEERPORT
+              value: "" #optional
+            - name: HOST_WHITELIST
+              value: "" #optional
+          volumeMounts:
+            - name: config
+              mountPath: /config
+            - name: downloads
+              mountPath: /downloads
+            - name: watch
+              mountPath: /watch
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: shared-pvc
+        - name: downloads
+          persistentVolumeClaim:
+            claimName: shared-pvc
+        - name: watch
+          persistentVolumeClaim:
+            claimName: shared-pvc
 
-      downloads:
-        enabled: true
-        type: pvc
-        mountPath: /downloads
-        existingClaim: shared-pvc 
-
-      watch:
-        enabled: true
-        type: pvc
-        mountPath: /watch
-        existingClaim: shared-pvc 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: transmission
+  namespace: ownapps
+spec:
+  type: ClusterIP
+  selector:
+    app: transmission
+  ports:
+    - protocol: TCP
+      port: 9091
+      targetPort: 9091
+    - protocol: TCP
+      port: 51413
+      targetPort: 51413
+    - protocol: UDP
+      port: 51413
+      targetPort: 51413
