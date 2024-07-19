@@ -29,7 +29,7 @@ spec:
             - containerPort: 51413
               protocol: UDP
           volumeMounts:
-            - name: transmission-data
+            - name: transmission-config
               mountPath: /config
             - name: downloads
               mountPath: /downloads
