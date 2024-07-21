@@ -21,8 +21,6 @@ spec:
               value: "1000"
             - name: PGID
               value: "1000"
-            - name: TZ
-              value: "ETC/UTC"
           ports:
             - containerPort: 9091
             - containerPort: 51413
