@@ -19,4 +19,4 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - k3s-aptop # Replace with the actual node name
+          - rass1tb
