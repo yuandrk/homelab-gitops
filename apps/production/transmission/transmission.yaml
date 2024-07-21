@@ -1,33 +1,76 @@
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: transmission
   namespace: ownapps
 spec:
-  interval: 24h
-  url: https://k8s-at-home.com/charts/
----
-apiVersion: helm.toolkit.fluxcd.io/v2
-kind: HelmRelease
-metadata:
-  name: transmission
-  namespace: ownapps
-spec:
-  interval: 30m
-  chart:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: transmission
+  template:
+    metadata:
+      labels:
+        app: transmission
     spec:
-      chart: transmission
-      sourceRef:
-        kind: HelmRepository
-        name: transmission 
-        namespace: ownapps
-      interval: 1m0s
-  values: 
-    persistence:
-      config:
-        enabled: true
-        existingClaim: media-pvc
-      downloads:
-        enabled: true
-        existingClaim: media-pvc
-      
+      containers:
+        - name: transmission
+          image: lscr.io/linuxserver/transmission:latest
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: TZ
+              value: "ETC/UTC"
+          ports:
+            - containerPort: 9091
+            - containerPort: 51413
+            - containerPort: 51413
+              protocol: UDP
+          volumeMounts:
+            - name: transmission-config
+              mountPath: /config
+            - name: downloads
+              mountPath: /downloads
+            - name: watch-folder
+              mountPath: /watch
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+      volumes:
+        - name: transmission-config
+          persistentVolumeClaim:
+            claimName: media-pvc
+        - name: downloads
+          persistentVolumeClaim:
+            claimName: media-pvc
+        - name: watch-folder
+          persistentVolumeClaim:
+            claimName: media-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: transmission
+  namespace: default
+spec:
+  type: ClusterIP
+  ports:
+    - name: web
+      port: 9091
+      targetPort: 9091
+    - name: peer-tcp
+      port: 51413
+      targetPort: 51413
+      protocol: TCP
+    - name: peer-udp
+      port: 51413
+      targetPort: 51413
+      protocol: UDP
+  selector:
+    app: transmission
