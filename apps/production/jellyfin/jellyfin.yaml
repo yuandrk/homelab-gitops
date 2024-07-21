@@ -25,4 +25,4 @@ spec:
   values:  # https://github.com/utkuozdemir/helm-charts/blob/master/jellyfin/values.yaml
     persistence:
       enabled: true
-      existingClaim: shared-pvc 
+      existingClaim: media-pvc 
