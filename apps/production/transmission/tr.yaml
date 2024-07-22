@@ -26,6 +26,9 @@ spec:
             - containerPort: 51413
             - containerPort: 51413
               protocol: UDP
+          volumeMounts:
+            - name: transmission-config
+              mountPath: /config
           resources:
             requests:
               memory: "256Mi"
@@ -37,12 +40,7 @@ spec:
         - name: transmission-config
           persistentVolumeClaim:
             claimName: media-pvc
-        - name: downloads
-          persistentVolumeClaim:
-            claimName: media-pvc
-        - name: watch-folder
-          persistentVolumeClaim:
-            claimName: media-pvc
+
 ---
 apiVersion: v1
 kind: Service
