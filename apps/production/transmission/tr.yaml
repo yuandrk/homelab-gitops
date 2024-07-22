@@ -30,6 +30,12 @@ spec:
             - name: media-pvc
               mountPath: /config
               subPath: config
+            - name: media-pvc
+              mountPath: /downloads
+              subPath: downloads
+            - name: media-pvc
+              mountPath: /watch
+              subPath: watch
           resources:
             requests:
               memory: "256Mi"
