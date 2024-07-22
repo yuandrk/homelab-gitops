@@ -27,8 +27,9 @@ spec:
             - containerPort: 51413
               protocol: UDP
           volumeMounts:
-            - name: transmission-config
+            - name: media-pvc
               mountPath: /config
+              subPath: config
           resources:
             requests:
               memory: "256Mi"
@@ -37,7 +38,7 @@ spec:
               memory: "512Mi"
               cpu: "500m"
       volumes:
-        - name: transmission-config
+        - name: media-pvc
           persistentVolumeClaim:
             claimName: media-pvc
 
