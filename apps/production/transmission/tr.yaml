@@ -26,13 +26,6 @@ spec:
             - containerPort: 51413
             - containerPort: 51413
               protocol: UDP
-          volumeMounts:
-            - name: transmission-config
-              mountPath: /config
-            - name: downloads
-              mountPath: /downloads
-            - name: watch-folder
-              mountPath: /watch
           resources:
             requests:
               memory: "256Mi"
