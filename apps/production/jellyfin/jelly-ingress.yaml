@@ -20,6 +20,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: jellyfin
+                name: jellyfin-service
                 port:
                   number: 8920
