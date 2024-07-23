@@ -22,4 +22,4 @@ spec:
               service:
                 name: jellyfin-service
                 port:
-                  number: 8920
+                  number: 8096
