@@ -24,5 +24,17 @@ spec:
       interval: 1m0s
   values:  # https://github.com/utkuozdemir/helm-charts/blob/master/jellyfin/values.yaml
     persistence:
-      enabled: true
-      existingClaim: media-pvc 
+      config:
+        enabled: true
+        existingClaim: media-pvc
+      media:
+        enabled: true
+        existingClaim: media-pvc
+    extraVolumeMounts:
+      - name: media-pvc
+        mountPath: /downloads
+        subPath: downloads
+    extraVolumes:
+      - name: media-pvc
+        persistentVolumeClaim:
+          claimName: media-pvc
