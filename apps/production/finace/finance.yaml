@@ -23,4 +23,8 @@ spec:
         name: finance
         namespace: ownapps
       interval: 1m0s
-  
+  values:
+    image:
+      actual-server:
+        repository: ghcr.io/actualbudget/actual-server
+        tag: sha-c19cc56
