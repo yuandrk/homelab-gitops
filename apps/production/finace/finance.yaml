@@ -24,7 +24,7 @@ spec:
         namespace: ownapps
       interval: 1m0s
   values:
-    image:
+    images:
       actual-server:
         repository: ghcr.io/actualbudget/actual-server
         tag: sha-c19cc56
