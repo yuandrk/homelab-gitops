@@ -11,7 +11,7 @@ spec:
   tls:
     - hosts:
         - jelly.yuandrk.net
-      secretName: ia-ingress-prod
+      secretName: jelly-ingress-prod
   rules:
     - host: "jelly.yuandrk.net"
       http:
