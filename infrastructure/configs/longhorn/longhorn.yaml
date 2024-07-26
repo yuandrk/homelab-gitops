@@ -41,6 +41,9 @@ spec:
     monitoring:
       enabled: true
       createPrometheusRules: true
+    networkPolicies:
+      enabled: true
+      type: "k3s"
     defaultSettings:
       defaultReplicaCount: 3
       backupstorePollInterval: 0
