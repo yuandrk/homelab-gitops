@@ -13,8 +13,6 @@ spec:
   url: https://charts.longhorn.io
   timeout: 3m
 ---
-#% if bootstrap_distribution in ['k0s', 'k3s'] and addon_longhorn.enabled %#
----
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
