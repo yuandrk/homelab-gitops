@@ -40,7 +40,7 @@ spec:
       size: 15Gi
       storageClass: longhorn
       accessModes:
-        - ReadWriteOnce
+        - ReadWriteMany
     extraEnvVars:
     - name: OPENAI_API_KEY
       valueFrom:
