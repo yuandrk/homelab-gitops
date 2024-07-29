@@ -31,14 +31,10 @@ spec:
       interval: 12h
   values: 
     global:
-      storageClass: "local-path"
+      storageClass: "longhorn"
     primary:
       persistence:
         enabled: true
-        storageClass: "local-path"
-        size: "10Gi"
-      nodeSelector:
-        disktype: ssd
     volumePermissions:
       enabled: true
       
