@@ -32,8 +32,6 @@ spec:
   values:
     ollama:
       enabled: false
-    nodeSelector:
-      disktype: ssd
     persistence:
       enabled: true
       existingClaim: ownapps
