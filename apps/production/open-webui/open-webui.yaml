@@ -28,7 +28,7 @@ spec:
         kind: HelmRepository
         name: open-webui
         namespace: ownapps
-      version: 3.0.5
+      version: 3.0.10
   values:
     ollama:
       enabled: false
@@ -37,7 +37,7 @@ spec:
     persistence:
       enabled: true
       size: 15Gi
-      storageClass: "default"
+      storageClass: longhorn
       accessModes:
         - ReadWriteOnce
     extraEnvVars:
