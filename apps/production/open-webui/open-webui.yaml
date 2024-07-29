@@ -36,6 +36,7 @@ spec:
       disktype: ssd
     persistence:
       enabled: true
+      existingClaim: ownapps
       size: 15Gi
       storageClass: longhorn
       accessModes:
