@@ -35,6 +35,7 @@ spec:
     primary:
       persistence:
         enabled: true
+        existingClaim: database
     volumePermissions:
       enabled: true
       
