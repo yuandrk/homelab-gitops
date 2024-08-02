@@ -38,13 +38,6 @@ spec:
   values:
     ollama:
       enabled: true
-    persistence:
-      enabled: true
-      existingClaim: ownapps
-      size: 15Gi
-      storageClass: longhorn
-      accessModes:
-        - ReadWriteMany
     extraEnvVars:
     - name: OPENAI_API_KEY
       valueFrom:
