@@ -34,17 +34,17 @@ spec:
           protocol: UDP
         - containerPort: 1900
           protocol: UDP
-        volumeMounts:
-        - name: media-pvc
-          mountPath: /config
-          subPath: config
-        - name: media-pvc
-          mountPath: /data/movies
-          subPath: downloads
-      volumes:
-      - name: media-pvc
-        persistentVolumeClaim:
-          claimName: media-pvc
+      #   volumeMounts:
+      #   - name: media-pvc
+      #     mountPath: /config
+      #     subPath: config
+      #   - name: media-pvc
+      #     mountPath: /data/movies
+      #     subPath: downloads
+      # volumes:
+      # - name: media-pvc
+      #   persistentVolumeClaim:
+      #     claimName: media-pvc
 ---
 apiVersion: v1
 kind: Service
