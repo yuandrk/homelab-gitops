@@ -38,9 +38,3 @@ spec:
   values:
     ollama:
       enabled: true
-    extraEnvVars:
-    - name: OPENAI_API_KEY
-      valueFrom:
-        secretKeyRef:
-          name: openai-api-key
-          key: api-key
