@@ -30,8 +30,6 @@ spec:
         namespace: database
       interval: 12h
   values: 
-    global:
-      storageClass: "longhorn"
     primary:
       persistence:
         enabled: true
