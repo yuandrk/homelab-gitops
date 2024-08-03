@@ -18,9 +18,9 @@ spec:
     mode: enabled
   values:
     nextcloud:
-      host: "nextcloud.local" 
+      host: "nextcould.yuandrk.net" 
       trustedDomains:
-        - "nextcloud.yuandrk.net"
+        - "yuandrk.net"
     image:
       flavor: fpm-alpine
     nginx:
@@ -29,21 +29,21 @@ spec:
         tag: stable-alpine
     livenessProbe:
       enabled: true
-      initialDelaySeconds: 65
+      initialDelaySeconds: 60
       periodSeconds: 10
       timeoutSeconds: 10
       failureThreshold: 3
       successThreshold: 1
     readinessProbe:
       enabled: true
-      initialDelaySeconds: 65
+      initialDelaySeconds: 60
       periodSeconds: 10
       timeoutSeconds: 5
       failureThreshold: 3
       successThreshold: 1
     startupProbe:
       enabled: false
-      initialDelaySeconds: 65
+      initialDelaySeconds: 60
       periodSeconds: 10
       timeoutSeconds: 5
       failureThreshold: 30
