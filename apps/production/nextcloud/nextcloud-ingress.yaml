@@ -11,7 +11,7 @@ spec:
   tls:
     - hosts:
         - nextcloud.yuandrk.net
-      secretName: finance-ingress-prod
+      secretName: nextcloud-ingress-prod
   rules:
     - host: "nextcloud.yuandrk.net"
       http:
