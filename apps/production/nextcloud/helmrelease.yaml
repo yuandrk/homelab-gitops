@@ -20,7 +20,7 @@ spec:
     nextcloud:
       host: "nextcloud.local" 
       trustedDomains:
-        - "yuandrk.net"
+        - "nextcloud.yuandrk.net"
 
     livenessProbe:
       enabled: true
