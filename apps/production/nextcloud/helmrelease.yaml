@@ -42,4 +42,8 @@ spec:
 
     persistence:
       enabled: true
-      storageClass: nextcloud
+      existingClaim: nextcloud
+      storageClass: longhorn
+      accessModes:
+        - ReadWriteMany
+      
