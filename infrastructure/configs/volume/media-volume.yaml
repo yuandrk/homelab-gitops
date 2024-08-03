@@ -1,0 +1,11 @@
+apiVersion: longhorn.io/v1beta1
+kind: Volume
+metadata:
+  name: media-volume
+spec:
+  numberOfReplicas: 1
+  size: 200Gi 
+  frontend: blockdev
+  fromBackup: ""
+  recurringJobs: []
+  nodeSelector: ["rass1tb"]
