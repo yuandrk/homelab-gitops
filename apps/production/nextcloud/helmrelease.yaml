@@ -21,6 +21,8 @@ spec:
       host: "nextcloud.local" 
       trustedDomains:
         - "nextcloud.yuandrk.net"
+    image:
+      flavor: fpm-alpine
     nginx:
       enabled: true
       image:
