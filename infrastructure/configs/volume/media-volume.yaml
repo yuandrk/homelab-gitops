@@ -2,6 +2,10 @@ apiVersion: longhorn.io/v1beta1
 kind: Volume
 metadata:
   name: media-volume
+  namespace: longhorn-system
+  labels:
+    longhornvolume: media-volume
+    longhornnode: rass1tb
 spec:
   numberOfReplicas: 1
   size: 200Gi 
