@@ -41,9 +41,9 @@ spec:
           - name: media
             mountPath: /data/movies
             subPath: downloads
-        volumes:
-          - name: media
-            persistentVolumeClaim:
+      volumes:
+        - name: media
+          persistentVolumeClaim:
             claimName: media
 ---
 apiVersion: v1
