@@ -1,0 +1,45 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: nextcloud
+  namespace: ownapps
+spec:
+  chart:
+    spec:
+      chart: nextcloud
+      version: 5.5.2
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        namespace: ownapps
+        name: nextcloud
+  interval: 1h
+  driftDetection:
+    mode: enabled
+  values:
+    image:
+      flavor: fpm-alpine
+
+    ingress:
+      enabled: false
+
+    redis:
+      enabled: false
+
+    externalDatabase:
+      enabled: true
+      type: postgresql
+      existingSecret:
+        enabled: true
+        secretName: postgresql-app
+        hostKey: host
+        databaseKey: dbname
+        usernameKey: username
+        passwordKey: password
+
+    cronjob:
+      enabled: true
+
+    persistence:
+      enabled: true
+      storageClass: nextcloud
