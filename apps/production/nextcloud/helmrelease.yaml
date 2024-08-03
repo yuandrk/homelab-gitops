@@ -29,21 +29,21 @@ spec:
         tag: stable-alpine
     livenessProbe:
       enabled: true
-      initialDelaySeconds: 60
+      initialDelaySeconds: 65
       periodSeconds: 10
       timeoutSeconds: 10
       failureThreshold: 3
       successThreshold: 1
     readinessProbe:
       enabled: true
-      initialDelaySeconds: 60
+      initialDelaySeconds: 65
       periodSeconds: 10
       timeoutSeconds: 5
       failureThreshold: 3
       successThreshold: 1
     startupProbe:
       enabled: false
-      initialDelaySeconds: 2ß60
+      initialDelaySeconds: 65
       periodSeconds: 10
       timeoutSeconds: 5
       failureThreshold: 30
