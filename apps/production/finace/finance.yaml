@@ -30,7 +30,7 @@ spec:
     persistence:
       data:
         enabled: true
-        existingClaim: pvc-finance 
+        existingClaim: finance-actual-data
         volumeClaimSpec:
           accessModes:
             - ReadWriteMany
