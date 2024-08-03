@@ -1,11 +1,11 @@
-apiVersion: longhorn.io/v1beta1
-kind: Volume
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
 metadata:
-  name: media-volume
-  namespace: longhorn-system
-spec:
-  numberOfReplicas: 1
-  size: 200Gi 
-  frontend: blockdev
+  name: longhorn
+provisioner: driver.longhorn.io
+allowVolumeExpansion: true
+parameters:
+  numberOfReplicas: "1" # Assuming you want no replicas, setting this to 1
   fromBackup: ""
+  fsType: "ext4"
   nodeSelector: "rass1tb"
