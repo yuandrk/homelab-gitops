@@ -60,4 +60,3 @@ If you encounter issues, ensure that:
 - Longhorn is properly installed and running in your cluster.
 - The `kubectl` context is set to the correct cluster.
 
-Feel free to reach out for further assistance if needed.
