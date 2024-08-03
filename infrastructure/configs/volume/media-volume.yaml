@@ -2,6 +2,7 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: longhorn
+  namespace: ownapps
 provisioner: driver.longhorn.io
 allowVolumeExpansion: true
 parameters:
