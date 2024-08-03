@@ -7,7 +7,7 @@ This section covers setting up a local Large Language Model (LLM) on a powerful 
 Before deploying the LLM, ensure that your most capable node is correctly labeled to indicate it has an SSD. This label will be used to target the deployment specifically to this node.
 
 ```bash
-kubectl label nodes <node-name> disktype=ssd
+kubectl label nodes <node-name> device=lap
 ```
 
 Replace <node-name> with the actual name of the node you want to label. This step is crucial for the node selector in the deployment configuration to function correctly.
@@ -18,7 +18,7 @@ Once the node is labeled, modify the deployment configuration to specifically ta
 
 ``` yaml 
 nodeSelector:
-  disktype: ssd
+  device: lap
 ``` 
 
 ``` bash 

@@ -38,3 +38,5 @@ spec:
   values:
     ollama:
       enabled: true
+    nodeSelector:
+      device: lap
