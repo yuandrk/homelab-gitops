@@ -21,7 +21,10 @@ spec:
       host: "nextcloud.local" 
       trustedDomains:
         - "nextcloud.yuandrk.net"
-
+    nginx:
+      enabled: true
+      image:
+        tag: stable-alpine
     livenessProbe:
       enabled: true
       initialDelaySeconds: 260
