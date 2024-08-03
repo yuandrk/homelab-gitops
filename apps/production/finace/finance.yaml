@@ -1,4 +1,3 @@
-
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
@@ -28,3 +27,14 @@ spec:
       actual-server:
         repository: ghcr.io/actualbudget/actual-server
         tag: sha-c19cc56
+    persistence:
+      data:
+        enabled: true
+        existingClaim: pvc-finance 
+        volumeClaimSpec:
+          accessModes:
+            - ReadWriteMany
+          storageClassName: longhorn
+          resources:
+            requests:
+              storage: 10Gi
