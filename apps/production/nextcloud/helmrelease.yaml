@@ -17,8 +17,8 @@ spec:
   driftDetection:
     mode: enabled
   values:
-    image:
-      flavor: fpm-alpine
+    nextcloud:
+      host: "nextcloud.local" 
 
     livenessProbe:
       enabled: true
@@ -42,7 +42,6 @@ spec:
       failureThreshold: 30
       successThreshold: 1
 
-
     ingress:
       enabled: false
 
@@ -50,15 +49,7 @@ spec:
       enabled: false
 
     externalDatabase:
-      enabled: true
-      type: postgresql
-      existingSecret:
-        enabled: true
-        secretName: postgresql-app
-        hostKey: host
-        databaseKey: dbname
-        usernameKey: username
-        passwordKey: password
+      enabled: false
 
     cronjob:
       enabled: true
