@@ -26,7 +26,7 @@ spec:
     images:
       actual-server:
         repository: ghcr.io/actualbudget/actual-server
-        tag: sha-c19cc56
+        tag: sha-eec5fbb
     persistence:
       data:
         enabled: true
