@@ -1,4 +1,4 @@
-apiVersion: Helm.fluxcd.io/v1
+apiVersion: Helm.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: ownapps
@@ -12,4 +12,3 @@ spec:
   values:
     redis:  
       enabled: false 
-      
