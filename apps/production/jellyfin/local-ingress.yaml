@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-access-to-jelly
+  namespace: ownapps
+spec:
+  podSelector:
+    matchLabels:
+      app: jellyfin
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          access: allowed
+    ports:
+    - protocol: TCP
+      port: 8096
+    - protocol: TCP
+      port: 8920
+    - protocol: UDP
+      port: 7359
+    - protocol: UDP
+      port: 1900
+  policyTypes:
+  - Ingress

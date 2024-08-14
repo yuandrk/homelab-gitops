@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
    - jellyfin.yaml
    - jelly-ingress.yaml
+   - local-ingress.yaml
