@@ -1,0 +1,15 @@
+apiVersion: Helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: ownapps
+  namespace: ownapps
+spec:
+  releaseName: ownapps
+  chart:
+    repository: https://helm.truecharts.org
+    name: ownapps-document-server
+    version: <chart-version>  
+  values:
+    redis:  
+      enabled: false 
+      
