@@ -6,9 +6,8 @@ metadata:
 spec:
   releaseName: ownapps
   chart:
-    repository: https://helm.truecharts.org
+    repository: oci://tccr.io/truecharts
     name: ownapps-document-server
-    version: <chart-version>  
   values:
     redis:  
       enabled: false 
