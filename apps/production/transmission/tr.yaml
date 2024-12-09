@@ -43,8 +43,10 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
-
-
+      volumes:
+        - name: media
+          persistentVolumeClaim:
+            claimName: media
 ---
 apiVersion: v1
 kind: Service

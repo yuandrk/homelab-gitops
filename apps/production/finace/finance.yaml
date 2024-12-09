@@ -30,4 +30,11 @@ spec:
     persistence:
       data:
         enabled: true
-
+        existingClaim: finance-actual-data
+        volumeClaimSpec:
+          accessModes:
+            - ReadWriteMany
+          storageClassName: longhorn
+          resources:
+            requests:
+              storage: 10Gi

@@ -1,0 +1,70 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: nextcloud
+  namespace: ownapps
+spec:
+  chart:
+    spec:
+      chart: nextcloud
+      version: 5.5.2
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        namespace: ownapps
+        name: nextcloud
+  interval: 1h
+  driftDetection:
+    mode: enabled
+  values:
+    nextcloud:
+      host: "nextcould.yuandrk.net" 
+      trustedDomains:
+        - "yuandrk.net"
+    image:
+      flavor: fpm-alpine
+    nginx:
+      enabled: true
+      image:
+        tag: stable-alpine
+    livenessProbe:
+      enabled: true
+      initialDelaySeconds: 60
+      periodSeconds: 10
+      timeoutSeconds: 10
+      failureThreshold: 3
+      successThreshold: 1
+    readinessProbe:
+      enabled: true
+      initialDelaySeconds: 60
+      periodSeconds: 10
+      timeoutSeconds: 5
+      failureThreshold: 3
+      successThreshold: 1
+    startupProbe:
+      enabled: false
+      initialDelaySeconds: 60
+      periodSeconds: 10
+      timeoutSeconds: 5
+      failureThreshold: 30
+      successThreshold: 1
+
+    ingress:
+      enabled: false
+
+    redis:
+      enabled: false
+
+    externalDatabase:
+      enabled: false
+
+    cronjob:
+      enabled: true
+
+    persistence:
+      enabled: true
+      existingClaim: nc
+      storageClass: longhorn
+      accessModes:
+        - ReadWriteMany
+      
